@@ -3,13 +3,8 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  street_address  :string           not null
-#  city            :string           not null
-#  state           :string           not null
-#  zip_code        :integer          not null
 #  f_name          :string           not null
 #  l_name          :string           not null
-#  prefix          :string           not null
 #  email           :string           not null
 #  phone_number    :string           not null
 #  password_digest :string           not null
@@ -19,15 +14,8 @@
 #
 
 class User < ApplicationRecord
-  #columns necessary for finding reps
-  validates :street_address, :city, :state, :zip_code, presence: true
-
-  #columns necessary for filling out contact forms
-  validates :f_name, :l_name, :prefix, :email, :phone_number, presence: true
+  validates :f_name, :l_name, :email, :phone_number, presence: true
   validates :email, uniqueness: :true, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
-
-  #columns necessary for account creation
-  validates :phone_number, presence: true
   validates :password, length: { minimum: 8, allow_nil: true }
 
 

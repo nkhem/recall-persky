@@ -26,13 +26,8 @@ class Api::UsersController < ApplicationController
     params.require(:user).permit(
       :f_name,
       :l_name,
-      :prefix,
       :email,
       :phone_number,
-      :street_address,
-      :city,
-      :state,
-      :zip_code,
       :password
     )
   end
