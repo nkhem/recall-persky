@@ -12,7 +12,7 @@ class Home extends React.Component {
         <Header
           loggedIn={this.props.loggedIn}
           logout={ this.props.logout } />
-        <h1>Whose Democracy</h1>
+        <h1>Recall Persky Volunteer Portal</h1>
       </div>
     );
   }

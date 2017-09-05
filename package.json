@@ -1,7 +1,7 @@
 {
-  "name": "WhoseDemocracy",
+  "name": "RecallPerskyPortal",
   "version": "1.0.0",
-  "description": "A work in progress. Write My Rep is an app for contacting Senate & House members that uses SmartyStreets Geocoding API to look up users' representatives and Phantom of the Capitol API to fill out the contact forms of members of the US Congress.",
+  "description": "Volunteer portal for the Recall Aaron Persky campaign.",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -17,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nkhem/write-my-rep.git"
+    "url": "git+https://github.com/nkhem/recall-persky.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nkhem/write-my-rep/issues"
+    "url": "https://github.com/nkhem/recall-persky/issues"
   },
-  "homepage": "https://github.com/nkhem/write-my-rep#readme",
+  "homepage": "https://github.com/nkhem/recall-persky#readme",
   "dependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
