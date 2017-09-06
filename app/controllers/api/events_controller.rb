@@ -7,6 +7,8 @@ class Api::EventController < ApplicationController
     end
 
     if @event && @event.save
+      # @event.create_shifts(start_datetime, end_datetime)
+      # set organizer to current user
       render "api/events/show"
     end
   end
