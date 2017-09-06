@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { logout } from '../actions/session_actions';
 import Header from './header';
+import EventForm from './event/event_form';
 
 class Home extends React.Component {
 
@@ -13,6 +14,7 @@ class Home extends React.Component {
           loggedIn={this.props.loggedIn}
           logout={ this.props.logout } />
         <h1>Recall Persky Volunteer Portal</h1>
+        <EventForm />
       </div>
     );
   }

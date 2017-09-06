@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
 import Home from './home';
+import EventForm from './event/event_form';
 import SessionForm from './session/session_form';
 
 const Root = ({ store }) => {

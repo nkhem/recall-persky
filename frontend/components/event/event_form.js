@@ -1,38 +1,44 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// import { login, signup, clearErrors } from '../../actions/session_actions';
+import { createNewEvent, clearErrors } from '../../actions/event_actions';
 
 import Header from '../header';
 import ErrorMsgs from '../error_msgs';
 
 
 class EventForm extends React.Component {
-//   constructor(props){
-//     super(props);
-//     this.state = {
-//       f_name: '',
-//       l_name: '',
-//       email: '',
-//       phone_number: '',
-//       password: ''
-//     };
-//     this.handleSubmit = this.handleSubmit.bind(this);
-//     this.redirectIfLoggedIn = this.redirectIfLoggedIn.bind(this);
-//   }
-//
-//   componentWillMount() {
-//     this.props.clearErrors();
-//   }
-//
-//   handleSubmit(e) {
-// 		e.preventDefault();
-// 		this.props.processForm({user: this.state})
-//       .then( () => {
-//         this.props.clearErrors();
-//         this.redirectIfLoggedIn();
-//       });
-//
+  constructor(props){
+    super(props);
+    this.state = {
+      newEvent: {
+        title: '',
+        street_address1: '',
+        street_address2: '',
+        city: '',
+        event_url: '',
+        img_url: '',
+        public_details: ''
+      },
+      contiguousTimings: [] // array of start_datetime/end_datetime pairs. Ex: [[start_datetime, end_datetime], ...]
+    };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.redirectIfLoggedIn = this.redirectIfLoggedIn.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.clearErrors();
+  }
+
+  handleSubmit(e) {
+		e.preventDefault();
+		this.props.processForm({newEvent: this.state})
+      .then( () => {
+        this.props.clearErrors();
+        this.redirectIfLoggedIn();
+      });
+
 //     this.setState({
 //       f_name: '',
 //       l_name: '',

@@ -4,7 +4,7 @@ export const RECEIVE_NEW_EVENT = 'RECEIVE_NEW_EVENT';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
-export const createEvent = newEvent => dispatch => {
+export const createNewEvent = newEvent => dispatch => {
   return ApiUtil.createNewEvent(newEvent)
     .then(newEventPromise => {
       dispatch(receiveNewEvent(newEventPromise));
