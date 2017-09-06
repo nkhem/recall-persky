@@ -6,10 +6,10 @@ json.(event,
   :city,
   :event_url,
   :img_url,
-  :public_details,
-  :private_notes,
-  :contiguous_timings,
-  :shifts,
-  :volunteers,
-  :organizers
+  # :public_details,
+  # :private_notes,
+  # :contiguous_timings,
+  # :shifts,
+  # :volunteers,
+  # :organizers
 )

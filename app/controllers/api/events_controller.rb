@@ -1,7 +1,7 @@
 require "byebug"
 class Api::EventsController < ApplicationController
   def create
-    # debugger
+    debugger
     begin
       @event = Event.new(event_params)
     rescue ActiveRecord::RecordInvalid => invalid
@@ -10,7 +10,7 @@ class Api::EventsController < ApplicationController
 
     if @event && @event.save
       # params[contiguousTimingsPairs].each contig_timing do
-        # @event.create_shifts(params[:start_datetime], params[:end_datetime])
+        @event.create_shifts(timings_params)
       # end
 
       # set organizer to current user
@@ -30,6 +30,9 @@ class Api::EventsController < ApplicationController
   private
   def event_params
     params.require(:newEvent).permit(:title, :street_address1, :street_address2, :city, :event_url, :img_url)
+  end
 
+  def timings_params
+    params.permit(:contiguousTimings)
   end
 end
