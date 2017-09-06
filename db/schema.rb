@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906173411) do
+ActiveRecord::Schema.define(version: 20170906180301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contiguous_timings", force: :cascade do |t|
+    t.integer "event_id",   null: false
+    t.integer "user_id",    null: false
+    t.integer "date",       null: false
+    t.integer "start_time", null: false
+    t.integer "end_time",   null: false
+    t.index ["event_id"], name: "index_contiguous_timings_on_event_id", using: :btree
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "title",           null: false
@@ -22,7 +31,6 @@ ActiveRecord::Schema.define(version: 20170906173411) do
     t.string   "city",            null: false
     t.string   "event_url",       null: false
     t.string   "img_url",         null: false
-    t.integer  "user_id",         null: false
     t.string   "public_details",  null: false
     t.string   "private_notes",   null: false
     t.datetime "created_at",      null: false
