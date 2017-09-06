@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 
 const ErrorMsgs = props => {
+  // console.log("props in ErrorMsgs:", props);
   if (props.errors && props.errors.length === 1) {
     return (
       <div className='error-msgs' id={`${props.id}`}>
