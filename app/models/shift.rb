@@ -11,4 +11,6 @@
 #
 
 class Shift < ApplicationRecord
+  validates :contiguous_timing_id, :start_time, :end_time, presence: true
+
 end

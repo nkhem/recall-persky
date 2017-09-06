@@ -19,7 +19,6 @@ class User < ApplicationRecord
   validates :phone_number, format: { with: /((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/i }
   validates :password, length: { minimum: 4, allow_nil: true }
 
-
   attr_reader :password
 
   after_initialize :ensure_session_token
