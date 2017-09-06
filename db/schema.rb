@@ -10,41 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906192136) do
+ActiveRecord::Schema.define(version: 20170906203806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contiguous_timings", force: :cascade do |t|
-    t.integer  "event_id",   null: false
+    t.integer  "event_id",       null: false
     t.integer  "user_id"
-    t.integer  "date",       null: false
-    t.integer  "start_time", null: false
-    t.integer  "end_time",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
     t.index ["event_id"], name: "index_contiguous_timings_on_event_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",           null: false
-    t.string   "street_address1", null: false
-    t.string   "street_address2"
-    t.string   "city",            null: false
-    t.string   "event_url",       null: false
-    t.string   "img_url",         null: false
-    t.string   "public_details",  null: false
-    t.string   "private_notes",   null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "title",                        null: false
+    t.string   "street_address1",              null: false
+    t.string   "street_address2", default: "", null: false
+    t.string   "city",                         null: false
+    t.string   "event_url",       default: "", null: false
+    t.string   "img_url",         default: "", null: false
+    t.string   "public_details",  default: "", null: false
+    t.string   "private_notes",   default: "", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "shifts", force: :cascade do |t|
     t.integer  "contiguous_timing_id", null: false
-    t.integer  "start_time",           null: false
-    t.integer  "end_time",             null: false
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
   end
 
   create_table "users", force: :cascade do |t|

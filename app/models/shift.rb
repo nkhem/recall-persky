@@ -4,16 +4,14 @@
 #
 #  id                   :integer          not null, primary key
 #  contiguous_timing_id :integer          not null
-#  start_time           :integer          not null
-#  end_time             :integer          not null
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
+#  start_datetime       :datetime
+#  end_datetime         :datetime
 #
 
 class Shift < ApplicationRecord
-  validates :contiguous_timing_id, :start_time, :end_time, presence: true
-  validates :start_time, :end_time, :inclusion => { :in => 0..2400 },
-    :message => "Invalid time. Must be between 0 and 2400."
+  validates :contiguous_timing_id, :start_datetime, :end_datetime, presence: true
 
   has_many :volunteers,
     through: :users_shifts,
@@ -29,8 +27,8 @@ class Shift < ApplicationRecord
     through: :contiguous_timing,
     source: :organizer
 
-  has_one :date,
-    through: :contiguous_timing,
-    source: :date
+  # has_one :date,
+  #   through: :contiguous_timing,
+  #   source: :date
 
 end

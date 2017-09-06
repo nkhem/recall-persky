@@ -5,12 +5,12 @@
 #  id              :integer          not null, primary key
 #  title           :string           not null
 #  street_address1 :string           not null
-#  street_address2 :string
+#  street_address2 :string           default(""), not null
 #  city            :string           not null
-#  event_url       :string           not null
-#  img_url         :string           not null
-#  public_details  :string           not null
-#  private_notes   :string           not null
+#  event_url       :string           default(""), not null
+#  img_url         :string           default(""), not null
+#  public_details  :string           default(""), not null
+#  private_notes   :string           default(""), not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #

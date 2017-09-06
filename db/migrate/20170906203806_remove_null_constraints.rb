@@ -1,10 +1,12 @@
 class RemoveNullConstraints < ActiveRecord::Migration[5.0]
   def change
-    change_column :events, :event_url, :string, :default => ""
-    change_column :events, :img_url, :string, :default => ""
-    change_column :events, :public_details, :default => ""
-    change_column :events, :private_notes, :default => ""
-    change_column :events, :street_address2, :null=> false, :default => ""
+    change_column_default :events, :event_url, ""
+    change_column_default :events, :img_url, ""
+    change_column_default :events, :public_details, ""
+    change_column_default :events, :private_notes, ""
+
+    change_column_null :events, :street_address2, false
+    change_column_default :events, :street_address2, ""
 
     remove_column :contiguous_timings, :date
     remove_column :contiguous_timings, :start_time
