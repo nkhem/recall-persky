@@ -16,6 +16,7 @@
 class User < ApplicationRecord
   validates :f_name, :l_name, :email, :phone_number, presence: true
   validates :email, uniqueness: :true, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
+  validates :phone_number, format: { with: /((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/i }
   validates :password, length: { minimum: 4, allow_nil: true }
 
 
