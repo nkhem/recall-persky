@@ -12,7 +12,7 @@
 #
 
 class ContiguousTiming < ApplicationRecord
-  validates :event_id, :date, :start_datetime, :end_datetime, presence: true
+  validates :event_id, :start_datetime, :end_datetime, presence: true
 
   belongs_to :event
 
