@@ -19,6 +19,24 @@ class User < ApplicationRecord
   validates :phone_number, format: { with: /((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/i }
   validates :password, length: { minimum: 4, allow_nil: true }
 
+  has_many :volunteer_shifts,
+    through: :users_shifts,
+    source: :shift
+
+  has_many :organizer_shifts,
+    through: :users_shifts,
+    source: :shift
+
+  #timings that this user is the organizer of
+  has_many :contiguous_timings
+
+  #events that this user is the organizer of at least one timing for
+  has_many :organizer_events,
+    through: :contiguous_timings,
+    source: :event
+
+
+
   attr_reader :password
 
   after_initialize :ensure_session_token

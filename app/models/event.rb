@@ -17,4 +17,22 @@
 
 class Event < ApplicationRecord
   validates :title, :street_address1, :city, presence: true
+
+  has_many :contiguous_timings
+  
+  has_many :dates,
+  through: :contiguous_timings,
+  source: :date
+
+  has_many :shifts,
+    through: :contiguous_timings,
+    source: :shifts
+
+  has_many :volunteers,
+    through: :contiguous_timings,
+    source: :volunteers
+
+  has_many :organizers,
+    through: :contiguous_timings,
+    source: :organizer
 end
