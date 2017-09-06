@@ -68,35 +68,39 @@ class SessionForm extends React.Component {
   					<input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
   						value={this.state.f_name}
   						onChange={this.update("f_name")}
-              placeholder='f_name' />
+              placeholder='First name' />
+
+            <br/>
 
             <input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
   						value={this.state.l_name}
   						onChange={this.update("l_name")}
-              placeholder='l_name' />
+              placeholder='Last name' />
+
+            <br/>
 
             <input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
   						value={this.state.phone_number}
   						onChange={this.update("phone_number")}
-              placeholder='phone_number' />
+              placeholder='Phone Number' />
 
             <br/>
 
   					<input type="text"
   						value={this.state.email}
   						onChange={this.update("email")}
-              placeholder='email' />
+              placeholder='Email' />
 
   					<br/>
 
   					<input type="password"
   						value={this.state.password}
   						onChange={this.update("password")}
-              placeholder='password' />
+              placeholder='Password' />
 
   					<br/>
 
-  					<input type="submit" value={this.props.formType} />
+  					<input type="submit" value={this.props.formType === 'login' ? 'Log in' : 'Sign up'} />
   				</form>
   			</div>
 
