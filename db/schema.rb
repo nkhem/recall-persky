@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906180301) do
+ActiveRecord::Schema.define(version: 20170906185758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contiguous_timings", force: :cascade do |t|
     t.integer "event_id",   null: false
-    t.integer "user_id",    null: false
+    t.integer "user_id"
     t.integer "date",       null: false
     t.integer "start_time", null: false
     t.integer "end_time",   null: false
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 20170906180301) do
     t.string   "private_notes",   null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "shifts", force: :cascade do |t|
+    t.integer "contiguous_timing_id", null: false
+    t.integer "start_time",           null: false
+    t.integer "end_time",             null: false
   end
 
   create_table "users", force: :cascade do |t|
