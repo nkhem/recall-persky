@@ -9,7 +9,6 @@ json.(event,
   :public_details,
   :private_notes,
   :contiguous_timings,
-  :start_datetimes,
   :shifts,
   :volunteers,
   :organizers

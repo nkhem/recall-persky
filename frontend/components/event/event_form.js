@@ -17,7 +17,6 @@ class EventForm extends React.Component {
         city: '',
         event_url: '',
         img_url: '',
-        public_details: ''
       },
       contiguousTimings: [] // array of start_datetime/end_datetime pairs. Ex: [[start_datetime, end_datetime], ...]
     };
@@ -46,7 +45,6 @@ class EventForm extends React.Component {
         city: '',
         event_url: '',
         img_url: '',
-        public_details: ''
       },
       contiguousTimings: []
     });

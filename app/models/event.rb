@@ -19,10 +19,10 @@ class Event < ApplicationRecord
   validates :title, :street_address1, :city, presence: true
 
   has_many :contiguous_timings
-
-  has_many :start_datetimes,#TODO:how to make this into dates?
-    through: :contiguous_timings,
-    source: :start_datetime
+  # 
+  # has_many :start_datetimes,#TODO:how to make this into dates?
+  #   through: :contiguous_timings,
+  #   source: :start_datetime
 
   has_many :shifts,
     through: :contiguous_timings,
