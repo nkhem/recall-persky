@@ -1,8 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login, signup } from '../actions/session_actions';
+import { Link } from 'react-router';
+
+import { login, signup, clearErrors } from '../actions/session_actions';
 
 import Header from './header';
+import ErrorMsgs from './error_msgs';
+
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -18,10 +22,17 @@ class SessionForm extends React.Component {
     this.redirectIfLoggedIn = this.redirectIfLoggedIn.bind(this);
   }
 
+  componentWillMount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
 		e.preventDefault();
 		this.props.processForm({user: this.state})
-      .then( () => this.redirectIfLoggedIn() );
+      .then( () => {
+        this.props.clearErrors();
+        this.redirectIfLoggedIn();
+      });
 
     this.setState({
       f_name: '',
@@ -52,6 +63,7 @@ class SessionForm extends React.Component {
           loggedIn={this.props.loggedIn} />
   			<div className='main-content'>
           <h3>{this.props.formType}</h3>
+          <ErrorMsgs id='session-errors' errors={this.props.errors} />
   				<form onSubmit={this.handleSubmit} id="new-session-form">
   					<input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
   						value={this.state.f_name}
@@ -67,7 +79,7 @@ class SessionForm extends React.Component {
   						value={this.state.phone_number}
   						onChange={this.update("phone_number")}
               placeholder='phone_number' />
-            
+
             <br/>
 
   					<input type="text"
@@ -87,6 +99,28 @@ class SessionForm extends React.Component {
   					<input type="submit" value={this.props.formType} />
   				</form>
   			</div>
+
+        <div id="session-form-switch">
+          <Link
+            to={this.props.formType === 'login'?'signup':'login'}
+            onClick={()=> this.props.clearErrors()}>
+
+            {this.props.formType === 'login'
+              ? 'New user? '
+              : 'Already have an account? ' }
+
+            <span>{this.props.formType === 'login'
+              ? 'Create an account.  '
+              : 'Log in  ' }</span>
+
+          </Link>
+        </div>
+
+        <div id='back-to-main' onClick={()=> this.props.router.push("/")}>
+          <span>Back to main  </span>
+          <i className="fa fa-angle-right" aria-hidden="true"></i>
+        </div>
+
       </div>
 		);
   }
@@ -106,6 +140,7 @@ const mapDispatchToProps = (dispatch, state) => {
   const processForm = (formType === 'login') ? login : signup;
 
   return {
+    clearErrors: () => dispatch(clearErrors()),
     processForm: user => dispatch(processForm(user)),
     formType: formType
   };

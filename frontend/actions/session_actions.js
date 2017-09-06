@@ -2,13 +2,14 @@ import * as ApiUtil from '../util/session_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const signup = user => dispatch => {
   return ApiUtil.signup(user)
     .then(userPromise => {
       dispatch(receiveCurrentUser(userPromise));
     }, errors => {
-      console.log(errors);
+      dispatch(receiveErrors(errors.responseJSON));
     });
 };
 
@@ -17,7 +18,7 @@ export const login = user => dispatch => {
     .then(userPromise => {
       dispatch(receiveCurrentUser(userPromise));
     }, errors => {
-      console.log(errors);
+      dispatch(receiveErrors(errors.responseJSON));
     });
 };
 
@@ -43,5 +44,11 @@ export const receiveErrors = errors => {
     type: RECEIVE_ERRORS,
     currentUser: null,
     errors: errors
+  };
+};
+
+export const clearErrors = () => {
+  return {
+    type: CLEAR_ERRORS
   };
 };

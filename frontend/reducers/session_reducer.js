@@ -1,6 +1,7 @@
 import {
   RECEIVE_CURRENT_USER,
-  RECEIVE_ERRORS } from '../actions/session_actions';
+  RECEIVE_ERRORS,
+ CLEAR_ERRORS } from '../actions/session_actions';
 
 const nullUser = Object.freeze({
   currentUser: null,
@@ -24,6 +25,13 @@ const SessionReducer = (state = nullUser, action) => {
         {},
         nullUser,
         { errors: action.errors }
+      );
+      return nextState;
+    case CLEAR_ERRORS:
+      nextState = Object.assign(
+        {},
+        state,
+        { errors: [] }
       );
       return nextState;
     default:
