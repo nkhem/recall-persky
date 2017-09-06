@@ -1,0 +1,5 @@
+
+
+class UsersShift < ApplicationRecord
+
+end

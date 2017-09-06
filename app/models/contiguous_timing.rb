@@ -13,4 +13,17 @@
 #
 
 class ContiguousTiming < ApplicationRecord
+  validates :event_id, :date, :start_time, :end_time, presence: true
+
+  belongs_to :event
+  
+  belongs_to :organizer,
+    class_name: "User",
+    foreign_key: "user_id"
+
+  has_many :volunteers,
+    through: :
+  # has_many :dates,
+  #   through: :contiguous_timings,
+  #   source: :dates
 end
