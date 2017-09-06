@@ -12,5 +12,5 @@ json.(event,
   :start_datetimes,
   :shifts,
   :volunteers,
-  :organizers,
-  )
+  :organizers
+)
