@@ -7,7 +7,6 @@ class Api::EventController < ApplicationController
     end
 
     if @event && @event.save
-      create_shifts(@event)
       render "api/events/show"
     end
   end

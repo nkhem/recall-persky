@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
 import Home from './home';
-import SessionForm from './session_form';
+import SessionForm from './session/session_form';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import SessionBtns from './session_btns';
+import SessionBtns from './session/session_btns';
 
 class Header extends React.Component {
   constructor(props) {

@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { login, signup, clearErrors } from '../actions/session_actions';
+import { login, signup, clearErrors } from '../../actions/session_actions';
 
-import Header from './header';
-import ErrorMsgs from './error_msgs';
+import Header from '../header';
+import ErrorMsgs from '../error_msgs';
 
 
 class SessionForm extends React.Component {
